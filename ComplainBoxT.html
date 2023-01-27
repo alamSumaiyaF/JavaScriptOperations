@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <p><b>This is based on "JavaScript"</b></p>
+    <h3>Complain against the Hotel</h3>
+    <p><b>You have 2 options either "only complain" or you "want to take action"</b></p>
+    <form id="startcomplain">
+        
+    <input type="radio" name="complain" value="Food was not good" id="complain" ><label>Food was not good</label><br>
+    <input type="radio" name="complain" value="Hotel stuffs were not mannered" id="complain" ><label>Hotel stuffs were not mannered</label><br>
+    <input type="radio" name="complain" value="The rooms were dirty" id="complain" ><label>The rooms were dirty</label><br>
+    <input type="radio" name="complain" value="Environment was not good" id="complain" ><label>Environment was not good</label><br>
+    <input type="radio" name="complain" value="Expensive in comparison with service" id="complain" ><label>Expensive in comparison with service</label><br><br>
+    <button type="submit" >Do Your Complain</button><br><br>
+    
+    </form>
+
+    <button type="button" onclick="actionFunction()" >Do you want to take any action ?</button>
+
+    <div id="takeaction" style="display:none;">
+    <form>
+        <input type="radio" name="action" value="I want the discount as food was not good enough" id="action" ><label>I want the discount as food was not good enough</label><br>
+        <input type="radio" name="action" value="The hotel authority should take legal actions against their stuffs" id="action" ><label>The hotel authority should take legal actions against their stuffs</label><br>
+        <input type="radio" name="action" value="Hotel authority should be fined because of their negligance about hygiene issue" id="action" ><label>Hotel authority should be fined because of their negligance about hygiene issue</label><br>
+        <input type="radio" name="action" value="Hotel authority should be questioned about their lackings of keeping the environment Customer friendly " id="action" ><label>Hotel authority should be questioned about their lackings of keeping the environment Customer friendly</label><br>
+        <input type="radio" name="action" value="Local authority should take action for giving less service than the price" id="action" ><label>Local authority should take action for giving less service than the price</label><br>
+        <button type="submit" >Apply for taking the action</button>
+    </form>
+    </div>
+
+    <button type="button" onclick="compensationFunction()">What kind of Compensation do you prefer to get</button>
+    <p id="compensation"></p>
+    
+   
+	<script>
+	function actionFunction()
+    {   
+        
+        document.getElementById("startcomplain").style.display='none';
+        document.getElementById("takeaction").style.display='block';
+
+    }
+
+    function compensationFunction(){
+      if(confirm("Do you want to get your Compensation in cash ?")==true)
+      {
+         document.getElementById("compensation").innerHTML="If your complain is proved then you are supposed to get some amount back in your account which was provided by you during registration";
+
+      }
+
+      else{
+
+        document.getElementById("compensation").innerHTML="You are supposed to get some discount if next time you take any of our service"
+          
+      }
+
+
+    }
+     </script>
+
+
+    
+    
+</body>
+</html>

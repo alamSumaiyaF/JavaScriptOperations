@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      input[type=text]
+      {
+        width:22%;
+        padding: 5px;
+        font-size: 25px;
+        color: #737373;
+        border:2px solid #ffff80;
+        text-align: center;
+
+      }
+
+      input[type=text]:focus
+         {
+            border:2px solid #669900;
+
+      }
+
+      select
+      {
+        width:22%;
+        padding: 5px;
+        font-size: 25px;
+        color: #737373;
+        background-color: #ffff80;
+        border:2px solid white;
+        text-align: center;
+
+      }
+
+      label {
+       font-size: 25px;
+       color: #669900;
+      }
+
+      button {
+               width: 12% ; 
+               text-align: center;
+               padding: 5px;
+               font-size: 25px;
+               color: white;
+               background-color:#669900;
+               border:none;
+               transition:transform 0.4s;
+
+      }
+
+      button:hover{
+        background-color:#ddff99;
+        transform:scale(1.1);
+
+      }
+
+    </style>
+</head>
+
+<body>
+  <p><b>This is an operation based on "JavaScript".<br>
+    If you select "Types of Rooms" then it will automatically take the "Cost" of room as Input<br>
+    If you select any "Food Facilities" then it will automatically take the "Cost of Food" as Input<br>
+   Then it will calculate the total cost</b></p>
+    <label>Types of Rooms  </label>
+    <select id="room" name="room" onchange="roomCalculation()">
+        <optgroup label="Room">
+          <option>Room Categories</option>
+        <option value="small sized normal room">small normal room</option>
+        <option value="medium sized room with necessary furnitures">medium sized room with necessary furnitures</option>
+        <option value="large sized room with Lavish facilities">large sized room with Lavish facilities</option>
+        <option value="normal multiple beds room(4 beds)">normal multiple beds room(4 beds)</option>
+    </optgroup>
+    </select>
+    <label>Cost  </label>
+    <input type="text" id="roomprice" name="roomprice"><span style="color:brown;font-size: 20px;font-weight: bold;">USD</span><br><br>
+    <label>Number of days you want to book for  </label><input type="text" id="day" name="day"><br><br>
+    <label>Food Facilities </label>
+    <select id="food" name="food" onchange="foodCalculation()">
+        <optgroup label="Food">
+    
+          <option>Food Facilities</option>
+        <option value="3 Times Meal">3 Times Meal</option>
+        <option value="Only Lunch">Only Lunch</option>
+        <option value="Lunch $ Dinner">Lunch $ Dinner</option>
+        <option value="No Food">No Food</option>
+    </optgroup>
+    </select>
+    <label>Cost for Food  </label>
+    <input type="text" id="foodprice" name="foodprice"><span style="color:brown;font-size: 20px;font-weight: bold;">USD</span><br><br>
+    <button onclick="getTotal()">Total</button><br><br>
+    <p style="font-size: 20px;color:red ;" id="total"></p>
+    <input type="hidden" id="sum" name="sum">
+    <script>
+
+        function roomCalculation(){
+
+        var a=document.getElementById("room").value;
+        if(a=="small sized normal room")
+        {
+       document.getElementById("roomprice").value="40";
+        }
+        else if(a=="medium sized room with necessary furnitures")
+        {
+       document.getElementById("roomprice").value="60";
+        }
+        else if(a=="large sized room with Lavish facilities")
+        {
+       document.getElementById("roomprice").value="90";
+        }
+        else if(a=="normal multiple beds room(4 beds)")
+        {
+       document.getElementById("roomprice").value="80";
+        }
+    }
+
+    function foodCalculation(){
+        var b=document.getElementById("food").value;
+        if(b=="3 Times Meal")
+        {
+       document.getElementById("foodprice").value="35";
+        }
+        else if(b=="Only Lunch")
+        {
+       document.getElementById("foodprice").value="15";
+        }
+        else if(b=="Lunch $ Dinner")
+        {
+       document.getElementById("foodprice").value="25";
+        }
+        else if(b=="No Food")
+        {
+       document.getElementById("foodprice").value="00";
+        }
+
+    }
+    function getTotal()
+     {
+    var p=document.getElementById("roomprice").value;
+    var q=document.getElementById("foodprice").value;
+    var r=document.getElementById("day").value;
+    var x=p*r;
+    var y=q*r;
+    var z=x+y;
+
+    document.getElementById('total').innerHTML="The total amount for your choosen facilities is "+z+" USD";
+    document.getElementById('sum').value=z;
+
+     }
+    </script> 
+</body>
+</html>
